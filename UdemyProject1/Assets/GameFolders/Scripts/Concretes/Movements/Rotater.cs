@@ -20,13 +20,19 @@ namespace UdemyProjet1.Movements
         {
             if(direction==0)
             {
-                if (_rigidbody.freezeRotation) _rigidbody.freezeRotation = false;
-                return;
-
-                if (!_rigidbody.freezeRotation) _rigidbody.freezeRotation = true;
-
-                _playercontroller.transform.Rotate(Vector3.forward * Time.deltaTime * direction * _playercontroller.TurnSpeed);
+                if (_rigidbody.freezeRotation)
+                {
+                    _rigidbody.freezeRotation = false;
+                  
+                }
+                return; 
             }
+            if (!_rigidbody.freezeRotation)
+            {
+                _rigidbody.freezeRotation = true;
+            }
+
+            _playercontroller.transform.Rotate(Vector3.back * Time.deltaTime * direction * _playercontroller.TurnSpeed);
 
 
         }
