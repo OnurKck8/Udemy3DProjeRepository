@@ -25,7 +25,7 @@ namespace UdemyProjet1.Movements
 
                 if (!_rigidbody.freezeRotation) _rigidbody.freezeRotation = true;
 
-                _playercontroller.transform.Rotate(Vector3.back * Time.deltaTime * direction * _playercontroller.TurnSpeed);
+                _playercontroller.transform.Rotate(Vector3.forward * Time.deltaTime * direction * _playercontroller.TurnSpeed);
             }
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UdemyProejct1.Movements;
 using UdemyProject1.Inputs;
 using UdemyProject1.Movements;
 using UdemyProjet1.Movements;
@@ -16,8 +17,9 @@ namespace UdemyProject1.Controllers
         DefaultInput _defaultInput;
         Mover _mover;
         Rotater _rotater;
+        Fuel _fuel; 
 
-        bool _isForceUp;
+        bool _canForceUp;
         float _leftright;
 
         public float TurnSpeed => _turnSpeed;
@@ -28,18 +30,20 @@ namespace UdemyProject1.Controllers
             _defaultInput = new DefaultInput();
             _mover = new Mover(this);
             _rotater = new Rotater(this);
+            _fuel = GetComponent<Fuel>();
         }
 
         //Input operations
         private void Update()
         {
-            if (_defaultInput._isForceUp)
+            if (_defaultInput._isForceUp && !_fuel.isEmpty)
             {
-                _isForceUp = true;
+                _canForceUp = true;
             }
             else
             {
-                _isForceUp = false;
+                _canForceUp = false;
+                _fuel.FuelInCrease(0.01f);
             }
 
             _leftright = _defaultInput._leftright;
@@ -50,9 +54,10 @@ namespace UdemyProject1.Controllers
         private void FixedUpdate()
         {
             
-            if(_isForceUp)
+            if(_canForceUp)
             {
                 _mover.FixedTick();
+                _fuel.FuelDecrease(0.2f);
             }
             _rotater.FixedTick(_leftright);
         }
