@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UdemyProject1.Managers;
 using UnityEngine;
 
-namespace UdemyProejct1.Uis
+namespace UdemyProject1.Uis
 {
     public class GameOverObject : MonoBehaviour
     {

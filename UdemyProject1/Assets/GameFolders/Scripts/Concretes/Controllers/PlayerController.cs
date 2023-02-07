@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UdemyProejct1.Movements;
+using UdemyProject1.Movements;
 using UdemyProject1.Inputs;
 using UdemyProject1.Managers;
-using UdemyProject1.Movements;
 using UdemyProjet1.Movements;
 using UnityEngine;
 

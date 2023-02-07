@@ -5,7 +5,7 @@ using UdemyProject1.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UdemyProejct1.Controllers
+namespace UdemyProject1.Controllers
 {
     public class FinishFloorController : MonoBehaviour
     {

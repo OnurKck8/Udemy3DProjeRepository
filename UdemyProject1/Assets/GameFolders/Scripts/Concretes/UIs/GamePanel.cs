@@ -4,7 +4,7 @@ using UdemyProject1.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UdemyProejct1.Uis
+namespace UdemyProject1.Uis
 {
     public class GamePanel : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UdemyProejct1.Movements
+namespace UdemyProject1.Movements
 {
     public class Fuel : MonoBehaviour
     {
