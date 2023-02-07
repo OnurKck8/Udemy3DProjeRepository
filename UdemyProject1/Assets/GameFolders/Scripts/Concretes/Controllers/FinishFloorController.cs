@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UdemyProject1.Controllers;
+using UdemyProject1.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,11 +24,12 @@ namespace UdemyProejct1.Controllers
             {
                 _finishfirework.gameObject.SetActive(true);
                 _finishlight.gameObject.SetActive(true);
+                GameManager.Instance.MissionSucced();
             }
             else
             {
                 //GameOver
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.Instance.GameOver();
             }
         }
     }
