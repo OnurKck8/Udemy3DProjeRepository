@@ -46,16 +46,18 @@ namespace UdemyProject1.Managers
         {
             OnMissionSucced?.Invoke();
         }
+
+        
         public void LoadLevelScene(int levelIndex=0)
         {
             StartCoroutine(LoadLevelSceneAsync(levelIndex));
         }
         private IEnumerator LoadLevelSceneAsync(int levelIndex)
         {
-            yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+levelIndex);//0 ise restart 1 ise bir sonraki level
+            yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);//0 ise restart 1 ise bir sonraki level
         }
-
-        public void LoadMenu()
+         
+        public void LoadMenuScene()
         {
             StartCoroutine(LoadMenuSceneAsync());
         }
@@ -63,10 +65,13 @@ namespace UdemyProject1.Managers
         {
             yield return SceneManager.LoadSceneAsync("Menu");
         }
+       
 
+        /*
         public void Exit()
         {
             Application.Quit();
         }
+        */
     }
 }
