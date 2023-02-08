@@ -2,45 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UdemyProject1.Abstracts.Utilities;
 
 namespace UdemyProject1.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : SingletonThisObject<GameManager>
     {
         public event System.Action OnGameOver;
         public event System.Action OnMissionSucced;
 
-        public static GameManager Instance { get;private set; } //tek olmasý için
-
         private void Awake()
         {
-
-            SingletonThisGameObject();
-          
-        }
-
-        private void SingletonThisGameObject()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(this.gameObject);
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-
+            SingletonThisGameObject(this);
         }
 
         public void GameOver()
         {
             OnGameOver?.Invoke();
 
-            //if(OnGameOver!=null)
-            //{
-            //    GameOver();
-            //}
+            /*
+            if(OnGameOver!=null)
+            {
+                GameOver();
+            }
+            */
         }
         public void MissionSucced()
         {
@@ -54,7 +39,9 @@ namespace UdemyProject1.Managers
         }
         private IEnumerator LoadLevelSceneAsync(int levelIndex)
         {
+            SoundManager.Instance.StopSound(1);
             yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);//0 ise restart 1 ise bir sonraki level
+            SoundManager.Instance.PlaySound(2);
         }
          
         public void LoadMenuScene()
@@ -63,7 +50,9 @@ namespace UdemyProject1.Managers
         }
         private IEnumerator LoadMenuSceneAsync()
         {
+            SoundManager.Instance.StopSound(2);
             yield return SceneManager.LoadSceneAsync("Menu");
+            SoundManager.Instance.PlaySound(1);
         }
        
 
