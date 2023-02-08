@@ -12,6 +12,7 @@ namespace UdemyProject1.Movements
         [SerializeField] ParticleSystem _particleSystem;
 
         public bool isEmpty => _currentFuel < 1f;
+        public float CurrentFuel => _currentFuel / _maxFuel;
 
         private void Awake()
         {
