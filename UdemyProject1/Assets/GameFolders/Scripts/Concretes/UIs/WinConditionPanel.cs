@@ -9,7 +9,7 @@ namespace UdemyProject1.Uis
     {
       public void YesClick()
         {
-            GameManager.Instance.LoadLevelScene();
+            GameManager.Instance.LoadLevelScene(1);
         }
     }
 

@@ -9,11 +9,10 @@ namespace UdemyProject1.Controllers
     {
         [SerializeField] Vector3 _direction;
       //  [Range(0f,1f)] //sýnýr için
-        [SerializeField] float _factor;
         [SerializeField] float _speed=1f;
 
-        private const float FULL_CIRCLE=Mathf.PI*2f;//deðiþmeyen anlamýna gelir.
-
+        private const float FULL_CIRCLE=Mathf.PI*2f;//const:deðiþmeyen anlamýna gelir.
+        float _factor;
         Vector3 _startPos;
 
         private void Awake()
@@ -27,7 +26,8 @@ namespace UdemyProject1.Controllers
             float cycle = Time.time / _speed;
             float sinWave =Mathf.Sin( cycle * FULL_CIRCLE);
 
-            _factor = Mathf.Sin(sinWave);
+           // _factor = Mathf.Sin(sinWave);
+            _factor = sinWave / 2f + 0.5f;//0 ve 1 arasýnda gidip gelme.
             Vector3 offset = _direction * _factor;
             transform.position = offset + _startPos;
 
