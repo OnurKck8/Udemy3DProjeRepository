@@ -8,7 +8,7 @@ namespace UdemyProject1.Controllers
     public class MoverWall : WallController
     {
         [SerializeField] Vector3 _direction;
-      //  [Range(0f,1f)] //sýnýr için
+      //[Range(0f,1f)] //sýnýr için
         [SerializeField] float _speed=1f;
 
         private const float FULL_CIRCLE=Mathf.PI*2f;//const:deðiþmeyen anlamýna gelir.
@@ -18,7 +18,6 @@ namespace UdemyProject1.Controllers
         private void Awake()
         {
             _startPos = transform.position;
-
         }
 
         private void Update()
